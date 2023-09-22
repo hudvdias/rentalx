@@ -19,4 +19,8 @@ export class CategoriesRepository {
     this.categories.push(category);
     return category;
   }
+
+  public list(): Category[] {
+    return this.categories;
+  }
 }
