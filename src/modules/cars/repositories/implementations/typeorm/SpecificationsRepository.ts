@@ -1,18 +1,18 @@
 import { Specification } from "../../../entities/Specification";
-import { ICreateSpecificationDTO, ISpecificationRepository } from "../../contracts/ISpecificationRepository";
+import { ICreateSpecificationDTO, ISpecificationsRepository } from "../../contracts/ISpecificationsRepository";
 
-export class SpecificationRepository implements ISpecificationRepository {
+export class SpecificationsRepository implements ISpecificationsRepository {
   specifications: Specification[];
 
-  private static INSTANCE: SpecificationRepository;
+  private static INSTANCE: SpecificationsRepository;
 
   private constructor() {
     this.specifications = [];
   }
 
-  public static getInstance(): SpecificationRepository {
-    if (!SpecificationRepository.INSTANCE) SpecificationRepository.INSTANCE = new SpecificationRepository();
-    return SpecificationRepository.INSTANCE;
+  public static getInstance(): SpecificationsRepository {
+    if (!SpecificationsRepository.INSTANCE) SpecificationsRepository.INSTANCE = new SpecificationsRepository();
+    return SpecificationsRepository.INSTANCE;
   }
 
   public create(data: ICreateSpecificationDTO): Specification {

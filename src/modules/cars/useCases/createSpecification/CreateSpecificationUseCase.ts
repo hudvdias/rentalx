@@ -1,5 +1,5 @@
 import { Specification } from "../../entities/Specification";
-import { SpecificationRepository } from "../../repositories/implementations/typeorm/SpecificationRepository";
+import { SpecificationsRepository } from "../../repositories/implementations/typeorm/SpecificationsRepository";
 
 interface IRequest {
   name: string;
@@ -7,9 +7,9 @@ interface IRequest {
 }
 
 export class CreateSpecificationUseCase {
-  private specificationRepository: SpecificationRepository;
+  private specificationRepository: SpecificationsRepository;
 
-  constructor(specificationRepository: SpecificationRepository) {
+  constructor(specificationRepository: SpecificationsRepository) {
     this.specificationRepository = specificationRepository;
   }
 
