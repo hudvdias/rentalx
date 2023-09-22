@@ -9,7 +9,7 @@ services:
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=rocketseat
-      - POSTGRES_DATABASE=rentalx
+      - POSTGRES_DB=rentalx
     volumes:
       - pgdata:/data/postgres
   app:

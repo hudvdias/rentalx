@@ -1,7 +1,11 @@
 {
   "type": "postgres",
   "host": "localhost",
-  "username": "",
-  "password": "",
-  "database": "rentalx"
+  "username": "docker",
+  "password": "rocketseat",
+  "database": "rentalx",
+  "migrations": ["./src/database/migrations/*.ts"],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
 }
