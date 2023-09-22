@@ -1,5 +1,5 @@
-import { Specification } from "../../models/Specification";
-import { SpecificationRepository } from "../../repositories/implementations/memory/SpecificationRepository";
+import { Specification } from "../../entities/Specification";
+import { SpecificationRepository } from "../../repositories/implementations/typeorm/SpecificationRepository";
 
 interface IRequest {
   name: string;
