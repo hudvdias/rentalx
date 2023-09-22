@@ -17,6 +17,5 @@ export class Category {
 
   constructor() {
     if (!this.id) this.id = v4();
-    if (!this.created_at) this.created_at = new Date();
   }
 }
