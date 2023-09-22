@@ -5,10 +5,9 @@ import { listCategoriesController } from "../modules/cars/useCases/listCategorie
 export const categoriesRoutes = Router();
 
 categoriesRoutes.post("/", (request, response) => {
-  console.log("vsf");
-  createCategoryController.handle(request, response);
+  createCategoryController().handle(request, response);
 });
 
 categoriesRoutes.get("/", (request, response) => {
-  listCategoriesController.handle(request, response);
+  listCategoriesController().handle(request, response);
 });

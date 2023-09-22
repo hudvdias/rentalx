@@ -8,9 +8,9 @@ export class CreateCategoryController {
     this.createCategory = createCategoryUseCase;
   }
 
-  public handle(request: Request, response: Response) {
+  public async handle(request: Request, response: Response) {
     const { name, description } = request.body;
-    const category = this.createCategory.execute({ name, description });
+    const category = await this.createCategory.execute({ name, description });
     return response.status(201).json(category);
   }
 }

@@ -1,5 +1,5 @@
 import { Category } from "../../entities/Category";
-import { CategoriesRepository } from "../../repositories/CategoriesRepository";
+import { CategoriesRepository } from "../../repositories/implementations/typeorm/CategoriesRepository";
 
 export class ListCategoriesUseCase {
   private categoriesRepository: CategoriesRepository;
@@ -8,8 +8,8 @@ export class ListCategoriesUseCase {
     this.categoriesRepository = categoriesRepository;
   }
 
-  public execute(): Category[] {
-    const categories = this.categoriesRepository.list();
+  public async execute(): Promise<Category[]> {
+    const categories = await this.categoriesRepository.list();
     return categories;
   }
 }

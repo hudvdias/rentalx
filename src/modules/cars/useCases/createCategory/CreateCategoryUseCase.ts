@@ -1,5 +1,5 @@
 import { Category } from "../../entities/Category";
-import { ICategoryRepository } from "../../repositories/ICategoriesRepository";
+import { ICategoryRepository } from "../../repositories/contracts/ICategoriesRepository";
 
 interface IRequest {
   name: string;
@@ -13,11 +13,11 @@ export class CreateCategoryUseCase {
     this.categoriesRepository = categoriesRepository;
   }
 
-  public execute(data: IRequest): Category {
+  public async execute(data: IRequest): Promise<Category> {
     const { name, description } = data;
-    const categoryAlreadyExists = this.categoriesRepository.findByName(name);
+    const categoryAlreadyExists = await this.categoriesRepository.findByName(name);
     if (categoryAlreadyExists) throw new Error("Category already exists.");
-    const category = this.categoriesRepository.create({ name, description });
+    const category = await this.categoriesRepository.create({ name, description });
     return category;
   }
 }

@@ -8,8 +8,8 @@ export class ListCategoriesController {
     this.listCategory = listCategoryUseCase;
   }
 
-  public handle(request: Request, response: Response): Response {
-    const categories = this.listCategory.execute();
+  public async handle(request: Request, response: Response): Promise<Response> {
+    const categories = await this.listCategory.execute();
     return response.status(200).json(categories);
   }
 }
