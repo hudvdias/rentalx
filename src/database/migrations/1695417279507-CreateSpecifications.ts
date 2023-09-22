@@ -5,24 +5,10 @@ export class CreateSpecifications1695417279507 implements MigrationInterface {
     const table = new Table({
       name: "specifications",
       columns: [
-        {
-          name: "id",
-          type: "uuid",
-          isPrimary: true,
-        },
-        {
-          name: "name",
-          type: "varchar",
-        },
-        {
-          name: "description",
-          type: "varchar",
-        },
-        {
-          name: "created_at",
-          type: "timestamp",
-          default: "now()",
-        },
+        { name: "id", type: "uuid", isPrimary: true },
+        { name: "name", type: "varchar" },
+        { name: "description", type: "varchar" },
+        { name: "created_at", type: "timestamp", default: "now()" },
       ],
     });
 
