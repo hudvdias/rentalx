@@ -1,6 +1,17 @@
 version: "3.7"
 
 services:
+  database:
+    image: postgres
+    container_name: rentalx_database
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=rocketseat
+      - POSTGRES_DATABASE=rentalx
+    volumes:
+      - pgdata:/data/postgres
   app:
     build: .
     container_name: rentalx
@@ -8,3 +19,6 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
+
+volumes:
+  pgdata:
