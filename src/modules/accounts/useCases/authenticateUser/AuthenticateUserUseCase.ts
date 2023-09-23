@@ -2,6 +2,7 @@ import { Repository, getRepository } from "typeorm";
 import { User } from "../../entities/User";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
+import { AppError } from "../../../../errors/AppError";
 
 interface IRequest {
   email: string;
@@ -26,9 +27,9 @@ export class AuthenticateUserUseCase {
   public async execute(data: IRequest): Promise<IResponse> {
     const { email, password } = data;
     const user = await this.repository.findOne({ where: { email } });
-    if (!user) throw new Error("Email not registered.");
+    if (!user) throw new AppError("Email not registered.");
     const passwordMatches = await compare(password, user.password);
-    if (!passwordMatches) throw new Error("Wrong password.");
+    if (!passwordMatches) throw new AppError("Wrong password.");
     const token = sign({}, "bc7afcb7eef3ccfc1fc6547ed5fcde34", { subject: user.id, expiresIn: "7d" });
     return {
       user: {
