@@ -14,5 +14,7 @@ export class Car {
 
   constructor() {
     if (!this.id) this.id = v4();
+    this.available = true;
+    this.created_at = new Date();
   }
 }

@@ -1,3 +1,4 @@
+import { AppError } from "@/shared/errors/AppError";
 import { ICarsRepository } from "../../repositories/contracts/ICarsRepository";
 
 interface IRequest {
@@ -18,6 +19,18 @@ export class CreateCarUseCase {
   }
 
   public async execute(data: IRequest) {
-    throw new Error("Method not implemented.");
+    const { brand, category_id, daily_rate, description, fine_amount, license_plate, name } = data;
+    const carAlreadyExists = await this.carsRepository.findByLicensePlate(license_plate);
+    if (carAlreadyExists) throw new AppError("Car already exists.");
+    const car = await this.carsRepository.create({
+      brand,
+      category_id,
+      daily_rate,
+      description,
+      fine_amount,
+      license_plate,
+      name,
+    });
+    return car;
   }
 }
