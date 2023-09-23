@@ -1,8 +1,8 @@
 import { Repository, getRepository } from "typeorm";
-import { User } from "../../entities/User";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
-import { AppError } from "../../../../errors/AppError";
+import { AppError } from "@/errors/AppError";
+import { User } from "../../entities/User";
 
 interface IRequest {
   email: string;

@@ -1,8 +1,8 @@
 import { inject, injectable } from "tsyringe";
-import { IUsersRepository } from "../../repositories/contracts/IUsersRepository";
 import { User } from "../../entities/User";
 import { hash } from "bcrypt";
-import { AppError } from "../../../../errors/AppError";
+import { IUsersRepository } from "../../repositories/contracts/IUsersRepository";
+import { AppError } from "@/errors/AppError";
 
 interface IRequest {
   name: string;
