@@ -1,5 +1,5 @@
 import { ICreateCategoryDTO } from "../../../dtos/ICreateCategoryDTO";
-import { Category } from "../../../entities/Category";
+import { Category } from "../../../infra/typeorm/entities/Category";
 import { ICategoriesRepository } from "../../contracts/ICategoriesRepository";
 
 export class MemoryCategoriesRepository implements ICategoriesRepository {
