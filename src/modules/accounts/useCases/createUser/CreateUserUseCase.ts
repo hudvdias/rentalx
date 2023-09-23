@@ -6,7 +6,6 @@ interface IRequest {
   name: string;
   email: string;
   password: string;
-  username: string;
   driver_license: string;
 }
 
@@ -19,8 +18,8 @@ export class CreateUserUseCase {
   }
 
   public async execute(data: IRequest): Promise<User> {
-    const { name, email, password, username, driver_license } = data;
-    const user = await this.usersRepository.create({ name, email, password, username, driver_license });
+    const { name, email, password, driver_license } = data;
+    const user = await this.usersRepository.create({ name, email, password, driver_license });
     return user;
   }
 }
