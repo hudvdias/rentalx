@@ -22,12 +22,13 @@ export class User {
   driver_license: string;
 
   @Column()
-  admin: string;
+  admin: boolean;
 
   @CreateDateColumn()
   created_at: string;
 
   constructor() {
     if (!this.id) this.id = v4();
+    this.admin = false;
   }
 }
