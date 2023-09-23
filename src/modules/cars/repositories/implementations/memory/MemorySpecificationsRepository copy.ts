@@ -1,5 +1,6 @@
+import { ICreateSpecificationDTO } from "../../../dtos/ICreateSpecificationDTO";
 import { Specification } from "../../../entities/Specification";
-import { ICreateSpecificationDTO, ISpecificationsRepository } from "../../contracts/ISpecificationsRepository";
+import { ISpecificationsRepository } from "../../contracts/ISpecificationsRepository";
 
 export class MemorySpecificationsRepository implements ISpecificationsRepository {
   specifications: Specification[];

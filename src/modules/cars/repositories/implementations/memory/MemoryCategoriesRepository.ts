@@ -1,5 +1,6 @@
+import { ICreateCategoryDTO } from "../../../dtos/ICreateCategoryDTO";
 import { Category } from "../../../entities/Category";
-import { ICategoriesRepository, ICreateCategoryDTO } from "../../contracts/ICategoriesRepository";
+import { ICategoriesRepository } from "../../contracts/ICategoriesRepository";
 
 export class MemoryCategoriesRepository implements ICategoriesRepository {
   categories: Category[];
