@@ -1,5 +1,6 @@
 import { AppError } from "@/shared/errors/AppError";
 import { ICarsRepository } from "../../repositories/contracts/ICarsRepository";
+import { inject, injectable } from "tsyringe";
 
 interface IRequest {
   name: string;
@@ -11,10 +12,11 @@ interface IRequest {
   category_id: string;
 }
 
+@injectable()
 export class CreateCarUseCase {
   private carsRepository: ICarsRepository;
 
-  constructor(carsRepository: ICarsRepository) {
+  constructor(@inject("CarsRepository") carsRepository: ICarsRepository) {
     this.carsRepository = carsRepository;
   }
 
